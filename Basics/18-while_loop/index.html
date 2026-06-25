@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>While Loop Login Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card" id="loginCard">
+      <h2>🔒 Secure Login</h2>
+      <p class="subtitle">Loop status: <code>while(!loggedIn)</code></p>
+
+      <div class="input-group">
+        <label>Username:</label>
+        <input type="text" id="usernameInput" placeholder="Hint: myUsername" />
+      </div>
+
+      <div class="input-group">
+        <label>Password:</label>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Hint: myPassword"
+        />
+      </div>
+
+      <button id="loginBtn">Submit Credentials</button>
+      <div class="result" id="output">Please log in.</div>
+    </div>
+
+    <script>
+      const usernameInput = document.getElementById('usernameInput');
+      const passwordInput = document.getElementById('passwordInput');
+      const loginBtn = document.getElementById('loginBtn');
+      const output = document.getElementById('output');
+      const loginCard = document.getElementById('loginCard');
+
+      // This simulates the single loop step on every click
+      loginBtn.addEventListener('click', () => {
+        let username = usernameInput.value;
+        let password = passwordInput.value;
+
+        // Checking the condition
+        if (username === 'myUsername' && password === 'myPassword') {
+          // Condition met! The loop would stop here.
+          output.textContent = 'You are logged in!';
+          output.className = 'result success';
+          loginCard.style.borderTopColor = '#2ecc71';
+
+          // Disable inputs to show the sequence is finished
+          usernameInput.disabled = true;
+          passwordInput.disabled = true;
+          loginBtn.disabled = true;
+        } else {
+          // Condition failed. The loop continues to run.
+          output.textContent = 'Invalid credentials! Please try again';
+          output.className = 'result error';
+
+          // Clear fields for retry
+          usernameInput.value = '';
+          passwordInput.value = '';
+          usernameInput.focus();
+        }
+      });
+    </script>
+  </body>
+</html>

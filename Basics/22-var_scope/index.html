@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variable Scope Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scope-container">
+      <h1>Scope Visualizer</h1>
+      <p>
+        Click the buttons to see which <code>x</code> gets recognized and
+        logged!
+      </p>
+
+      <div class="scope-box global-zone">
+        <h3>🌍 Global Scope</h3>
+        <p><code>let x = 3;</code></p>
+
+        <div class="functions-grid">
+          <div class="scope-box local-zone">
+            <h4>📦 Inside Function 1</h4>
+            <p><code>let x = 1;</code></p>
+            <button onclick="runFunction1()">Call function1()</button>
+          </div>
+
+          <div class="scope-box local-zone">
+            <h4>📦 Inside Function 2</h4>
+            <p><code>let x = 2;</code></p>
+            <button onclick="runFunction2()">Call function2()</button>
+          </div>
+        </div>
+
+        <div class="center-btn">
+          <button onclick="runGlobalCheck()" class="btn-global">
+            Check Global x
+          </button>
+        </div>
+      </div>
+
+      <div class="console-box">
+        <h3>🖥️ Visual Console Output</h3>
+        <div id="console-output">Click a button to execute code...</div>
+      </div>
+    </div>
+
+    <script>
+      // Global variable
+      let x = 3;
+
+      const consoleOut = document.getElementById('console-output');
+
+      function logToConsole(message) {
+        consoleOut.innerHTML = `> ${message}`;
+      }
+
+      // Local scope 1
+      function function1() {
+        let x = 1;
+        logToConsole(
+          `function1() logged x: <strong>${x}</strong> (Local inside function1)`
+        );
+      }
+
+      // Local scope 2
+      function function2() {
+        let x = 2;
+        logToConsole(
+          `function2() logged x: <strong>${x}</strong> (Local inside function2)`
+        );
+      }
+
+      // Accessing the global scope
+      function runGlobalCheck() {
+        logToConsole(
+          `Global check logged x: <strong>${x}</strong> (Global variable)`
+        );
+      }
+
+      // UI wrappers to trigger your exact logic
+      function runFunction1() {
+        function1();
+      }
+      function runFunction2() {
+        function2();
+      }
+    </script>
+  </body>
+</html>

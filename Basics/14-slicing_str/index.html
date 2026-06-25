@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Slicing Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>✂️ String Slicing Practice</h2>
+      <p class="info"><code>string.slice(start, end)</code></p>
+
+      <div class="section">
+        <h3>1. Name Slicer</h3>
+        <input type="text" id="nameInput" value="svnth" />
+        <div class="result" id="nameOutput">Loading...</div>
+      </div>
+
+      <div class="section">
+        <h3>2. Email Splitter</h3>
+        <input type="text" id="emailInput" value="svnth@gmail.com" />
+        <div class="result" id="emailOutput">Loading...</div>
+      </div>
+    </div>
+
+    <script>
+      const nameInput = document.getElementById('nameInput');
+      const emailInput = document.getElementById('emailInput');
+
+      const nameOutput = document.getElementById('nameOutput');
+      const emailOutput = document.getElementById('emailOutput');
+
+      function sliceName() {
+        let fullName = nameInput.value;
+        // Slice from index 0 up to 3 (not including 3)
+        let first = fullName.slice(
+          0,
+          fullName.indexOf(' ') > -1 ? fullName.indexOf(' ') : 3
+        );
+        let last = fullName.slice(fullName.indexOf(' ') + 1);
+
+        nameOutput.innerHTML = `First: <b>${first}</b> | Last: <b>${last}</b>`;
+      }
+
+      function sliceEmail() {
+        let email = emailInput.value;
+        let atIndex = email.indexOf('@');
+
+        if (atIndex !== -1) {
+          let username = email.slice(0, atIndex);
+          let extension = email.slice(atIndex + 1);
+          emailOutput.innerHTML = `User: <b>${username}</b> | Host: <b>${extension}</b>`;
+        } else {
+          emailOutput.innerHTML = `⚠️ Missing "@" in email`;
+        }
+      }
+
+      nameInput.addEventListener('input', sliceName);
+      emailInput.addEventListener('input', sliceEmail);
+
+      // Run on load
+      sliceName();
+      sliceEmail();
+    </script>
+  </body>
+</html>

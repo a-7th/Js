@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch to Array Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📅 Day of the Week Practice</h1>
+      <p class="subtitle">
+        Replacing a bulky <code>switch</code> with a clean array map
+      </p>
+
+      <div class="card">
+        <h3>Enter Day Number (1-7)</h3>
+        <div class="control-group">
+          <input type="number" id="dayInput" value="7" min="1" max="7" />
+        </div>
+        <div class="code-box">
+          <code>
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday",
+            "Friday", "Saturday", "Sunday"];<br />
+            let message = days[day - 1] || "Not a valid day";
+          </code>
+        </div>
+        <div class="result" id="dayResult">Result will appear here</div>
+      </div>
+    </div>
+
+    <script>
+      const dayInput = document.getElementById('dayInput');
+      const dayResult = document.getElementById('dayResult');
+
+      function updateDay() {
+        let day = parseInt(dayInput.value);
+
+        // 1. The list of days (0-indexed)
+        const days = [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday',
+        ];
+
+        // 2. Grab the day, OR fallback to default if it's out of bounds
+        let dayName = days[day - 1];
+        let message = dayName ? `It is ${dayName}` : `${day} is not a day`;
+
+        dayResult.textContent = message;
+      }
+
+      dayInput.addEventListener('input', updateDay);
+      updateDay(); // Run once at start
+    </script>
+  </body>
+</html>

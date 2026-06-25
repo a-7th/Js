@@ -1,0 +1,96 @@
+/* General Page Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121214;
+  color: #e1e1e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container Card */
+.card {
+  background-color: #202024;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+}
+
+h1 {
+  color: #4da6ff;
+  margin-top: 0;
+}
+
+p {
+  color: #a8a8b3;
+  font-size: 0.95rem;
+}
+
+/* Button Layout */
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+button {
+  background-color: #00b0ff;
+  color: #121214;
+  border: none;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #33c2ff;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Distinct style for decrement button */
+.btn-decrement {
+  background-color: #ff5555;
+}
+
+.btn-decrement:hover {
+  background-color: #ff7777;
+}
+
+/* Output Display Box */
+.output-box {
+  background-color: #121214;
+  border: 1px solid #29292e;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: left;
+}
+
+.output-box h3 {
+  margin-top: 0;
+  color: #a8a8b3;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#loop-output {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  color: #00e676;
+  word-break: break-all;
+}

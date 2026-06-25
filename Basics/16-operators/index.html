@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logical Operators Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>⚡ Logical Operators Practice</h2>
+
+      <div class="section">
+        <h3>1 & 2. Temperature Checks</h3>
+        <label for="tempInput">Temperature (°C):</label>
+        <input type="number" id="tempInput" value="22" />
+
+        <div class="code-box">
+          <code>AND (&&): temp > 0 && temp <= 30</code>
+          <div class="result mini-res" id="andOutput">...</div>
+        </div>
+
+        <div class="code-box">
+          <code>OR (||): temp <= 0 || temp > 30</code>
+          <div class="result mini-res" id="orOutput">...</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>3. NOT Operator</h3>
+        <div class="toggle-group">
+          <label>Is it Sunny?</label>
+          <button id="sunnyBtn" class="btn btn-true">True</button>
+        </div>
+        <div class="code-box">
+          <code>NOT (!): !isSunny</code>
+          <div class="result mini-res" id="notOutput">...</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const tempInput = document.getElementById('tempInput');
+      const andOutput = document.getElementById('andOutput');
+      const orOutput = document.getElementById('orOutput');
+
+      const sunnyBtn = document.getElementById('sunnyBtn');
+      const notOutput = document.getElementById('notOutput');
+
+      let isSunny = true;
+
+      function updateWeather() {
+        let temp = parseFloat(tempInput.value) || 0;
+
+        // 1. AND Logic
+        if (temp > 0 && temp <= 30) {
+          andOutput.textContent = 'The weather is GOOD';
+          andOutput.style.borderColor = '#2ecc71';
+        } else {
+          andOutput.textContent = 'The weather is BAD';
+          andOutput.style.borderColor = '#e74c3c';
+        }
+
+        // 2. OR Logic
+        if (temp <= 0 || temp > 30) {
+          orOutput.textContent = 'The weather is BAD';
+          orOutput.style.borderColor = '#e74c3c';
+        } else {
+          orOutput.textContent = 'The weather is GOOD';
+          orOutput.style.borderColor = '#2ecc71';
+        }
+      }
+
+      function updateSunny() {
+        sunnyBtn.textContent = isSunny ? 'True' : 'False';
+        sunnyBtn.className = `btn ${isSunny ? 'btn-true' : 'btn-false'}`;
+
+        // 3. NOT Logic
+        if (!isSunny) {
+          notOutput.textContent = 'It is CLOUDY';
+          notOutput.style.borderColor = '#7f8c8d';
+        } else {
+          notOutput.textContent = 'It is SUNNY';
+          notOutput.style.borderColor = '#f1c40f';
+        }
+      }
+
+      tempInput.addEventListener('input', updateWeather);
+      sunnyBtn.addEventListener('click', () => {
+        isSunny = !isSunny;
+        updateSunny();
+      });
+
+      // Initial setup
+      updateWeather();
+      updateSunny();
+    </script>
+  </body>
+</html>

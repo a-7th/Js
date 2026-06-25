@@ -1,0 +1,120 @@
+/* General Environment Style */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Dashboard Grid */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Common Card Layout */
+.card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h2 {
+  color: #38bdf8;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #334155;
+  padding-bottom: 8px;
+}
+
+/* Form Styling */
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  flex: 1;
+  background-color: #0f172a;
+  border: 1px solid #475569;
+  color: #fff;
+  padding: 10px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #38bdf8;
+}
+
+/* Buttons */
+button {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #7dd3fc;
+}
+
+/* Calculator Grid Elements */
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.calc-buttons button {
+  font-size: 1.2rem;
+  padding: 8px;
+  background-color: #475569;
+  color: white;
+}
+
+.calc-buttons button:hover {
+  background-color: #64748b;
+}
+
+/* Static Display Output Boxes */
+.output-box {
+  margin-top: 15px;
+  background-color: #0f172a;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  border: 1px dashed #475569;
+}
+
+.msg-box {
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.4;
+  white-space: pre-line;
+}

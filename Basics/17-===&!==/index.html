@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equality Operators Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>⚖️ Equality Operators</h2>
+      <p class="subtitle">
+        Comparing Number <code>3.14</code> vs String <code>"3.14"</code>
+      </p>
+
+      <div class="comparison-box">
+        <h3>Loose Equality (==)</h3>
+        <div class="code-box"><code>PI == "3.14"</code></div>
+        <div class="result loose" id="looseOutput">Checking...</div>
+      </div>
+
+      <div class="comparison-box">
+        <h3>Strict Equality (===)</h3>
+        <div class="code-box"><code>PI === "3.14"</code></div>
+        <div class="result strict" id="strictOutput">Checking...</div>
+      </div>
+    </div>
+
+    <script>
+      const PI = 3.14;
+
+      // Loose comparison (Values match, types ignored)
+      if (PI == '3.14') {
+        document.getElementById('looseOutput').textContent =
+          'True (Values match)';
+        document.getElementById('looseOutput').style.borderColor = '#2ecc71';
+      } else {
+        document.getElementById('looseOutput').textContent = 'False';
+      }
+
+      // Strict comparison (Values match, but Types do NOT match)
+      if (PI === '3.14') {
+        document.getElementById('strictOutput').textContent = 'True';
+      } else {
+        document.getElementById('strictOutput').textContent =
+          'False (Data types differ: Number vs String)';
+        document.getElementById('strictOutput').style.borderColor = '#e74c3c';
+      }
+    </script>
+  </body>
+</html>

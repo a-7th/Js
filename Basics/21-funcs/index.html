@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Functions Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="card">
+        <h2>🎂 Birthday Generator</h2>
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Name" />
+          <input type="number" id="age" placeholder="Age" />
+        </div>
+        <button onclick="runBirthday()">Wish Happy Birthday</button>
+        <div id="birthday-output" class="output-box msg-box">
+          Card will appear here...
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🧮 Mini Math Calculator</h2>
+        <div class="input-group">
+          <input type="number" id="numX" placeholder="Value X" />
+          <input type="number" id="numY" placeholder="Value Y" />
+        </div>
+        <div class="calc-buttons">
+          <button onclick="runCalc('add')">+</button>
+          <button onclick="runCalc('subtract')">-</button>
+          <button onclick="runCalc('multiply')">×</button>
+          <button onclick="runCalc('divide')">÷</button>
+        </div>
+        <div id="calc-output" class="output-box">Result: --</div>
+      </div>
+
+      <div class="card">
+        <h2>🔢 Even or Odd Checker</h2>
+        <div class="input-group">
+          <input
+            type="number"
+            id="check-even-num"
+            placeholder="Enter a number"
+          />
+        </div>
+        <button onclick="runEvenCheck()">Check Even Status</button>
+        <div id="even-output" class="output-box">Is it even? --</div>
+      </div>
+
+      <div class="card">
+        <h2>📧 Email Validator</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            id="email-input"
+            placeholder="example@domain.com"
+          />
+        </div>
+        <button onclick="runEmailCheck()">Validate Email</button>
+        <div id="email-output" class="output-box">Validation status...</div>
+      </div>
+    </div>
+
+    <script>
+      // ==========================================
+      // YOUR FUNCTIONS (CORE LOGIC)
+      // ==========================================
+      function happyBirthday(username, age) {
+        return `Happy birthday to you!<br>
+                    Happy birthday to you!<br>
+                    Happy birthday dear, ${username || 'Friend'}!<br>
+                    Happy birthday to you!<br>
+                    <strong>You are ${age || 0} years old!</strong>`;
+      }
+
+      function add(x, y) {
+        return x + y;
+      }
+      function subtract(x, y) {
+        return x - y;
+      }
+      function multiply(x, y) {
+        return x * y;
+      }
+      function divide(x, y) {
+        return y !== 0 ? x / y : 'Cannot divide by zero';
+      }
+
+      function isEven(number) {
+        return number % 2 === 0 ? true : false;
+      }
+
+      function isValidEmail(email) {
+        return email.includes('@') ? true : false;
+      }
+
+      // ==========================================
+      // UI CONNECTIONS (DOM MANIPULATION)
+      // ==========================================
+      function runBirthday() {
+        const name = document.getElementById('username').value;
+        const age = document.getElementById('age').value;
+        document.getElementById('birthday-output').innerHTML = happyBirthday(
+          name,
+          age
+        );
+      }
+
+      function runCalc(operation) {
+        const x = Number(document.getElementById('numX').value);
+        const y = Number(document.getElementById('numY').value);
+        let result;
+
+        switch (operation) {
+          case 'add':
+            result = add(x, y);
+            break;
+          case 'subtract':
+            result = subtract(x, y);
+            break;
+          case 'multiply':
+            result = multiply(x, y);
+            break;
+          case 'divide':
+            result = divide(x, y);
+            break;
+        }
+        document.getElementById('calc-output').innerHTML =
+          `Result: <strong>${result}</strong>`;
+      }
+
+      function runEvenCheck() {
+        const num = Number(document.getElementById('check-even-num').value);
+        const output = document.getElementById('even-output');
+
+        if (document.getElementById('check-even-num').value === '') {
+          output.textContent = 'Please enter a number';
+          return;
+        }
+
+        const result = isEven(num);
+        output.innerHTML = result
+          ? '🟢 <strong>True</strong> (It is Even!)'
+          : '🔴 <strong>False</strong> (It is Odd!)';
+      }
+
+      function runEmailCheck() {
+        const email = document.getElementById('email-input').value;
+        const output = document.getElementById('email-output');
+        const result = isValidEmail(email);
+
+        output.innerHTML = result
+          ? "✅ <strong>Valid Email</strong> (Contains '@')"
+          : "❌ <strong>Invalid Email</strong> (Missing '@')";
+      }
+    </script>
+  </body>
+</html>

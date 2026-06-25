@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Ternary Operator Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>? Ternary Operator Practice</h1>
+      <p class="subtitle"><code>condition ? codeIfTrue : codeIfFalse;</code></p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>1. Greeting Based on Time</h3>
+          <div class="control-group">
+            <label for="timeInput">Enter Hour (0-23):</label>
+            <input type="number" id="timeInput" value="9" min="0" max="23" />
+          </div>
+          <div class="code-box">
+            <code
+              >let greeting = time &lt; 12 ? "Good morning!" : "Good
+              afternoon!";</code
+            >
+          </div>
+          <div class="result" id="greetingResult">Result will appear here</div>
+        </div>
+
+        <div class="card">
+          <h3>2. Student Status</h3>
+          <div class="control-group">
+            <label>Are you a student?</label>
+            <button id="studentToggle" class="btn btn-false">False</button>
+          </div>
+          <div class="code-box">
+            <code
+              >let message = isStudent ? "You are a student" : "You are NOT a
+              student";</code
+            >
+          </div>
+          <div class="result" id="studentResult">Result will appear here</div>
+        </div>
+
+        <div class="card">
+          <h3>3. Purchase Discount</h3>
+          <div class="control-group">
+            <label for="amountInput">Purchase Amount ($):</label>
+            <input type="number" id="amountInput" value="99" min="0" />
+          </div>
+          <div class="code-box">
+            <code>let discount = purchaseAmount &gt;= 100 ? 10 : 0;</code>
+          </div>
+          <div class="result" id="discountResult">Result will appear here</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // --- 1. Time Logic ---
+      const timeInput = document.getElementById('timeInput');
+      const greetingResult = document.getElementById('greetingResult');
+
+      function updateGreeting() {
+        let time = parseInt(timeInput.value) || 0;
+        // Your Ternary Operator
+        let greeting = time < 12 ? 'Good morning!' : 'Good afternoon!';
+        greetingResult.textContent = `Output: "${greeting}"`;
+      }
+
+      // --- 2. Student Logic ---
+      const studentToggle = document.getElementById('studentToggle');
+      const studentResult = document.getElementById('studentResult');
+      let isStudent = false;
+
+      function updateStudent() {
+        // Your Ternary Operator
+        let message = isStudent ? 'You are a student' : 'You are NOT a student';
+        studentResult.textContent = `Output: "${message}"`;
+
+        studentToggle.textContent = isStudent ? 'True' : 'False';
+        studentToggle.className = `btn ${isStudent ? 'btn-true' : 'btn-false'}`;
+      }
+
+      studentToggle.addEventListener('click', () => {
+        isStudent = !isStudent;
+        updateStudent();
+      });
+
+      // --- 3. Discount Logic ---
+      const amountInput = document.getElementById('amountInput');
+      const discountResult = document.getElementById('discountResult');
+
+      function updateDiscount() {
+        let purchaseAmount = parseFloat(amountInput.value) || 0;
+        // Your Ternary Operator
+        let discount = purchaseAmount >= 100 ? 10 : 0;
+        let finalTotal = purchaseAmount - purchaseAmount * (discount / 100);
+
+        discountResult.innerHTML = `
+                <div>Discount applied: <strong>${discount}%</strong></div>
+                <div>Total: <strong>$${finalTotal.toFixed(2)}</strong></div>
+            `;
+      }
+
+      // Event Listeners to make it alive
+      timeInput.addEventListener('input', updateGreeting);
+      amountInput.addEventListener('input', updateDiscount);
+
+      // Initial Run
+      updateGreeting();
+      updateStudent();
+      updateDiscount();
+    </script>
+  </body>
+</html>

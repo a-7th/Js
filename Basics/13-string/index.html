@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Methods Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>🔤 String Methods</h2>
+
+      <div class="input-group">
+        <label>Input Text:</label>
+        <input type="text" id="textInput" value="7th" />
+      </div>
+
+      <div class="input-group">
+        <label>Choose Method:</label>
+        <select id="methodSelect">
+          <option value="length">.length</option>
+          <option value="charAt0">.charAt(0)</option>
+          <option value="indexOfO">.indexOf("o")</option>
+          <option value="trim">.trim()</option>
+          <option value="toUpperCase">.toUpperCase()</option>
+          <option value="toLowerCase">.toLowerCase()</option>
+          <option value="repeat3">.repeat(3)</option>
+          <option value="includesSpace">.includes(" ")</option>
+          <option value="removeDashes">.replaceAll("-", "")</option>
+        </select>
+      </div>
+
+      <div class="result" id="output">Result will show here</div>
+    </div>
+
+    <script>
+      const textInput = document.getElementById('textInput');
+      const methodSelect = document.getElementById('methodSelect');
+      const output = document.getElementById('output');
+
+      function runMethod() {
+        let str = textInput.value;
+        let method = methodSelect.value;
+        let result;
+
+        // Apply the method based on choice
+        if (method === 'length') result = str.length;
+        else if (method === 'charAt0') result = str.charAt(0);
+        else if (method === 'indexOfO') result = str.indexOf('o');
+        else if (method === 'trim') result = `"${str.trim()}"`;
+        else if (method === 'toUpperCase') result = str.toUpperCase();
+        else if (method === 'toLowerCase') result = str.toLowerCase();
+        else if (method === 'repeat3') result = str.repeat(3);
+        else if (method === 'includesSpace') result = str.includes(' ');
+        else if (method === 'removeDashes') result = str.replaceAll('-', '');
+
+        output.textContent = `Output: ${result}`;
+      }
+
+      // Listen for changes
+      textInput.addEventListener('input', runMethod);
+      methodSelect.addEventListener('change', runMethod);
+
+      // Run once at start
+      runMethod();
+    </script>
+  </body>
+</html>

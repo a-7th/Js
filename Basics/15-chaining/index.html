@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Method Chaining Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>🔗 Method Chaining</h2>
+      <p class="subtitle">Clean up your text in a single line</p>
+
+      <input
+        type="text"
+        id="userInput"
+        value="   sVnTh  "
+        placeholder="Type a messy name..."
+      />
+
+      <div class="code-box">
+        <code
+          >username.trim().charAt(0).toUpperCase() +
+          username.trim().slice(1).toLowerCase();</code
+        >
+      </div>
+
+      <div class="result" id="output">Result will appear here</div>
+    </div>
+
+    <script>
+      const userInput = document.getElementById('userInput');
+      const output = document.getElementById('output');
+
+      function cleanName() {
+        let name = userInput.value;
+
+        // Your Method Chain
+        let formatted =
+          name.trim().charAt(0).toUpperCase() +
+          name.trim().slice(1).toLowerCase();
+
+        output.innerHTML = formatted
+          ? `Formatted: <b>"${formatted}"</b>`
+          : 'Type something!';
+      }
+
+      userInput.addEventListener('input', cleanName);
+      cleanName(); // Initial run
+    </script>
+  </body>
+</html>

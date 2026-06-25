@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>🔢 Number Guessing Game</h1>
+      <p class="instructions">
+        I'm thinking of a number between <span id="min-display">1</span> and
+        <span id="max-display">100</span>.
+      </p>
+
+      <div class="input-section">
+        <input
+          type="number"
+          id="guess-input"
+          placeholder="Enter your guess"
+          min="1"
+          max="100"
+        />
+        <button id="submit-btn" onclick="checkGuess()">Submit Guess</button>
+      </div>
+
+      <div id="feedback" class="feedback-box">Good luck!</div>
+
+      <div class="stats">Attempts: <span id="attempt-count">0</span></div>
+
+      <button id="reset-btn" onclick="resetGame()" style="display: none">
+        Play Again 🔄
+      </button>
+    </div>
+
+    <script>
+      // Game Configuration
+      const minNum = 1;
+      const maxNum = 100;
+      let answer;
+      let attempts;
+
+      // Initialize display values
+      document.getElementById('min-display').textContent = minNum;
+      document.getElementById('max-display').textContent = maxNum;
+
+      // Start a fresh game
+      function resetGame() {
+        answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+        attempts = 0;
+
+        document.getElementById('attempt-count').textContent = attempts;
+        document.getElementById('feedback').textContent =
+          'Game started! Enter a number below.';
+        document.getElementById('feedback').className = 'feedback-box';
+        document.getElementById('guess-input').value = '';
+        document.getElementById('guess-input').disabled = false;
+        document.getElementById('submit-btn').disabled = false;
+        document.getElementById('reset-btn').style.display = 'none';
+      }
+
+      // Check the player's guess
+      function checkGuess() {
+        const inputField = document.getElementById('guess-input');
+        const feedbackField = document.getElementById('feedback');
+        const attemptField = document.getElementById('attempt-count');
+
+        let guess = Number(inputField.value);
+
+        // Validation checks
+        if (inputField.value === '' || isNaN(guess)) {
+          feedbackField.textContent = '❌ Please enter a valid number!';
+          feedbackField.className = 'feedback-box error';
+          return;
+        }
+        if (guess < minNum || guess > maxNum) {
+          feedbackField.textContent = `❌ Enter a number between ${minNum} and ${maxNum}!`;
+          feedbackField.className = 'feedback-box error';
+          return;
+        }
+
+        // Valid guess registered
+        attempts++;
+        attemptField.textContent = attempts;
+
+        if (guess < answer) {
+          feedbackField.textContent = '📉 TOO LOW! TRY AGAIN!';
+          feedbackField.className = 'feedback-box low';
+        } else if (guess > answer) {
+          feedbackField.textContent = '📈 TOO HIGH! TRY AGAIN!';
+          feedbackField.className = 'feedback-box high';
+        } else {
+          feedbackField.innerHTML = `🎉 <strong>CORRECT!</strong> The answer was <strong>${answer}</strong>.<br>It took you ${attempts} attempts!`;
+          feedbackField.className = 'feedback-box correct';
+
+          // End game interactions
+          inputField.disabled = true;
+          document.getElementById('submit-btn').disabled = true;
+          document.getElementById('reset-btn').style.display = 'inline-block';
+        }
+
+        // Clear input for next guess and refocus
+        inputField.value = '';
+        inputField.focus();
+      }
+
+      // Allow pressing "Enter" key to submit
+      document
+        .getElementById('guess-input')
+        .addEventListener('keypress', function (event) {
+          if (event.key === 'Enter') {
+            checkGuess();
+          }
+        });
+
+      // Start the game loop automatically on page load
+      resetGame();
+    </script>
+  </body>
+</html>

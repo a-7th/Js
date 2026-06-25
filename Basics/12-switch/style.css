@@ -1,0 +1,80 @@
+:root {
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --primary-color: #e67e22; /* Different color for this lesson */
+  --text-color: #2c3e50;
+  --code-bg: #282c34;
+  --code-text: #abb2bf;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid var(--primary-color);
+}
+
+.control-group {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+input[type='number'] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.code-box {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.result {
+  background-color: #fdf2e9;
+  border-left: 4px solid var(--primary-color);
+  padding: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+}

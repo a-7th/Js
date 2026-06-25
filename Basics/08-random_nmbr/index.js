@@ -18,3 +18,12 @@ myButton.onclick = function () {
   label2.textContent = randomNum2;
   label3.textContent = randomNum3;
 };
+
+// Instead of waiting for a button click, just run the logic directly
+
+//to try the node run
+/*const min = 1;
+const max = 6;
+const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+console.log(`Your random number is: ${randomNumber}`);*/
