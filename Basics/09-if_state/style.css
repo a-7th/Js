@@ -1,0 +1,78 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Card Container (implicit via layout, but styles the form elements nicely) */
+body > div,
+body {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Typography & Form Elements */
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+input[type='text'] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 200px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+input[type='text']:focus {
+  border-color: #007bff;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Result Paragraph */
+#resultElement {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-height: 1.5em; /* Prevents layout shift when text appears */
+  color: #2c3e50;
+}
