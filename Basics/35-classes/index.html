@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Class Demo</h1>
+
+      <button id="runBtn">Run Code</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      // -------- CLASS --------
+      class Product {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+
+        displayProduct() {
+          display('Product', `Product: ${this.name}`);
+          display('Price', `$${this.price.toFixed(2)}`);
+        }
+
+        calculateTotal(salesTax) {
+          return this.price + this.price * salesTax;
+        }
+      }
+
+      document.getElementById('runBtn').addEventListener('click', () => {
+        clearOutput();
+
+        const salesTax = 0.05;
+
+        const product1 = new Product('Shirt', 19.99);
+        const product2 = new Product('Pants', 22.5);
+        const product3 = new Product('Underwear', 100.0);
+
+        // -------- OUTPUT --------
+        product1.displayProduct();
+
+        const total = product1.calculateTotal(salesTax);
+        display('Total (with tax)', `$${total.toFixed(2)}`);
+
+        display('Other Products', `${product2.name}, ${product3.name}`);
+      });
+    </script>
+  </body>
+</html>
