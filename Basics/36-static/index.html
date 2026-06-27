@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Keyword Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Static Keyword Demo</h1>
+
+      <button id="runBtn">Run Code</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      // -------- CLASS 1: MathUtil --------
+      class MathUtil {
+        static PI = 3.14159;
+
+        static getDiameter(radius) {
+          return radius * 2;
+        }
+
+        static getCircumference(radius) {
+          return 2 * this.PI * radius;
+        }
+
+        static getArea(radius) {
+          return this.PI * radius * radius;
+        }
+      }
+
+      // -------- CLASS 2: User --------
+      class User {
+        static userCount = 0;
+
+        constructor(username) {
+          this.username = username;
+          User.userCount++;
+        }
+
+        static getUserCount() {
+          return `There are ${User.userCount} users online`;
+        }
+
+        sayHello() {
+          return `Hello, my username is ${this.username}`;
+        }
+      }
+
+      document.getElementById('runBtn').addEventListener('click', () => {
+        clearOutput();
+
+        // -------- MathUtil --------
+        display('PI', MathUtil.PI);
+        display('Diameter (10)', MathUtil.getDiameter(10));
+        display('Circumference (10)', MathUtil.getCircumference(10));
+        display('Area (10)', MathUtil.getArea(10));
+
+        // -------- Users --------
+        const user1 = new User('Spongebob');
+        const user2 = new User('Patrick');
+        const user3 = new User('Sandy');
+
+        display('User1', user1.sayHello());
+        display('User2', user2.sayHello());
+        display('User3', user3.sayHello());
+
+        display('User Count', User.getUserCount());
+      });
+    </script>
+  </body>
+</html>
