@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reduce() Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>.reduce() Method Demo</h1>
+
+      <button id="runBtn">Run Reduce Examples</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      // -------- DATA --------
+      const prices = [5, 30, 10, 25, 15, 20];
+      const scores = [75, 50, 90, 80, 65, 95];
+
+      // -------- REDUCE FUNCTIONS --------
+      function sum(accumulator, element) {
+        return accumulator + element;
+      }
+
+      function getMax(accumulator, element) {
+        return Math.max(accumulator, element);
+      }
+
+      function getMin(accumulator, element) {
+        return Math.min(accumulator, element);
+      }
+
+      document.getElementById('runBtn').addEventListener('click', function () {
+        clearOutput();
+
+        // -------- EXAMPLE 1 --------
+        const total = prices.reduce(sum);
+
+        display('Prices', prices.join(', '));
+        display('Total (Sum using reduce)', `$${total.toFixed(2)}`);
+
+        // -------- EXAMPLE 2 --------
+        const max = scores.reduce(getMax);
+        const min = scores.reduce(getMin);
+
+        display('Scores', scores.join(', '));
+        display('Maximum Score', max);
+        display('Minimum Score', min);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Expressions Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Function Expressions Demo</h1>
+
+      <button id="runBtn">Run Code</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      document.getElementById('runBtn').addEventListener('click', function () {
+        clearOutput();
+
+        // -------- FUNCTION EXPRESSION --------
+        const hello = function () {
+          display('Function Expression', 'Hello');
+        };
+
+        hello();
+
+        setTimeout(function () {
+          display('setTimeout Callback', 'Goodbye (after 3s)');
+        }, 3000);
+
+        // -------- ARRAY --------
+        const numbers = [1, 2, 3, 4, 5, 6];
+
+        const squares = numbers.map(function (element) {
+          return element * element;
+        });
+
+        const cubes = numbers.map(function (element) {
+          return element ** 3;
+        });
+
+        const evenNums = numbers.filter(function (element) {
+          return element % 2 === 0;
+        });
+
+        const oddNums = numbers.filter(function (element) {
+          return element % 2 !== 0;
+        });
+
+        const total = numbers.reduce(function (accumulator, element) {
+          return accumulator + element;
+        });
+
+        // -------- OUTPUT --------
+        display('Numbers', numbers.join(', '));
+        display('Squares (map)', squares.join(', '));
+        display('Cubes (map)', cubes.join(', '));
+        display('Even Numbers (filter)', evenNums.join(', '));
+        display('Odd Numbers (filter)', oddNums.join(', '));
+        display('Total (reduce)', total);
+      });
+    </script>
+  </body>
+</html>

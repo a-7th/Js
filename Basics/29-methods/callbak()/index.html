@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button id="runBtn">Run Callback</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      function hello(callback) {
+        addOutput('Hello!');
+        callback();
+      }
+
+      function goodbye() {
+        addOutput('Goodbye!');
+      }
+
+      function addOutput(text) {
+        const output = document.getElementById('output');
+        const line = document.createElement('p');
+        line.textContent = text;
+        output.appendChild(line);
+      }
+
+      document.getElementById('runBtn').addEventListener('click', function () {
+        document.getElementById('output').innerHTML = ''; // reset
+        hello(goodbye);
+      });
+    </script>
+  </body>
+</html>

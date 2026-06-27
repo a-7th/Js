@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Objects Demo</h1>
+
+      <button id="runBtn">Run Code</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      document.getElementById('runBtn').addEventListener('click', () => {
+        clearOutput();
+
+        // -------- OBJECTS --------
+        const person1 = {
+          firstName: 'Spongebob',
+          lastName: 'Squarepants',
+          age: 30,
+          isEmployed: true,
+          sayHello: function () {
+            display('person1 sayHello', 'Hi! I am Spongebob!');
+          },
+          eat: function () {
+            display('person1 eat', 'I am eating a Krabby Patty');
+          },
+        };
+
+        const person2 = {
+          firstName: 'Patrick',
+          lastName: 'Star',
+          age: 42,
+          isEmployed: false,
+          sayHello: () => {
+            display('person2 sayHello', "Hey, I'm Patrick...");
+          },
+          eat: () => {
+            display(
+              'person2 eat',
+              'I am eating roast beef, chicken, and pizza'
+            );
+          },
+        };
+
+        // -------- OUTPUT --------
+        display('Person 1 Name', person1.firstName);
+        display('Person 2 Name', person2.firstName);
+
+        person1.sayHello();
+        person1.eat();
+
+        person2.sayHello();
+        person2.eat();
+      });
+    </script>
+  </body>
+</html>

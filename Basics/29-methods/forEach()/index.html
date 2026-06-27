@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>forEach() Demo</h1>
+
+      <button id="runBtn">Run Examples</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const numbers = [1, 2, 3, 4, 5];
+      let fruits = ['apple', 'orange', 'banana', 'coconut'];
+
+      function display(text) {
+        const output = document.getElementById('output');
+        const p = document.createElement('p');
+        p.textContent = text;
+        output.appendChild(p);
+      }
+
+      function clearOutput() {
+        document.getElementById('output').innerHTML = '';
+      }
+
+      // -------- number functions --------
+      function cube(element, index, array) {
+        array[index] = Math.pow(element, 3);
+      }
+
+      function square(element, index, array) {
+        array[index] = Math.pow(element, 2);
+      }
+
+      function double(element, index, array) {
+        array[index] = element * 2;
+      }
+
+      // -------- fruit function --------
+      function capitalize(element, index, array) {
+        array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+      }
+
+      document.getElementById('runBtn').addEventListener('click', function () {
+        clearOutput();
+
+        // reset arrays each click
+        let nums = [1, 2, 3, 4, 5];
+        let fr = ['apple', 'orange', 'banana', 'coconut'];
+
+        display('=== NUMBERS (CUBED) ===');
+        nums.forEach(cube);
+        nums.forEach(display);
+
+        display(' ');
+
+        display('=== NUMBERS (DOUBLED) ===');
+        nums.forEach(double);
+        nums.forEach(display);
+
+        display(' ');
+
+        display('=== FRUITS (CAPITALIZED) ===');
+        fr.forEach(capitalize);
+        fr.forEach(display);
+      });
+    </script>
+  </body>
+</html>

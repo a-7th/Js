@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #2b0000, #8b0000);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #ff1a1a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+button:hover {
+  background: #ff4d4d;
+  transform: scale(1.05);
+}
+
+.output {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.output p {
+  margin: 5px 0;
+}

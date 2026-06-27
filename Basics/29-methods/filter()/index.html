@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter() Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>.filter() Method Demo</h1>
+
+      <button id="runBtn">Run Filter Examples</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      // -------- DATA --------
+      let numbers = [1, 2, 3, 4, 5, 6, 7];
+
+      // -------- FILTER FUNCTIONS --------
+      function isEven(element) {
+        return element % 2 === 0;
+      }
+
+      function isOdd(element) {
+        return element % 2 !== 0;
+      }
+
+      document.getElementById('runBtn').addEventListener('click', function () {
+        clearOutput();
+
+        let evenNums = numbers.filter(isEven);
+        let oddNums = numbers.filter(isOdd);
+
+        display('Original Numbers', numbers.join(', '));
+        display('Even Numbers', evenNums.join(', '));
+        display('Odd Numbers', oddNums.join(', '));
+      });
+    </script>
+  </body>
+</html>

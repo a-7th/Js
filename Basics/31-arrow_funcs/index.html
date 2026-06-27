@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Functions Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Arrow Functions Demo</h1>
+
+      <button id="runBtn">Run Code</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      document.getElementById('runBtn').addEventListener('click', () => {
+        clearOutput();
+
+        // -------- EXAMPLE 1 --------
+        const hello = (name, age) => {
+          display('Hello Function', `Hello ${name}`);
+          display('Age Info', `You are ${age} years old`);
+        };
+
+        hello('Bro', 25);
+
+        // -------- EXAMPLE 2 --------
+        setTimeout(() => {
+          display('setTimeout', 'Hello');
+          display('setTimeout', 'Goodbye (after 3s)');
+        }, 3000);
+
+        // -------- EXAMPLE 3 --------
+        const numbers = [1, 2, 3, 4, 5, 6];
+
+        const squares = numbers.map((element) => element ** 2);
+        const cubes = numbers.map((element) => element ** 3);
+        const evenNums = numbers.filter((element) => element % 2 === 0);
+        const oddNums = numbers.filter((element) => element % 2 !== 0);
+        const total = numbers.reduce((acc, element) => acc + element);
+
+        display('Numbers', numbers.join(', '));
+        display('Squares', squares.join(', '));
+        display('Cubes', cubes.join(', '));
+        display('Even Numbers', evenNums.join(', '));
+        display('Odd Numbers', oddNums.join(', '));
+        display('Total', total);
+      });
+    </script>
+  </body>
+</html>

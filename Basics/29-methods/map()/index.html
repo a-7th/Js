@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map() Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>.map() Method Demo</h1>
+
+      <button id="runBtn">Run Map Examples</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      // -------- EXAMPLE 1 --------
+      const numbers = [1, 2, 3, 4, 5];
+
+      function square(element) {
+        return Math.pow(element, 2);
+      }
+
+      function cube(element) {
+        return Math.pow(element, 3);
+      }
+
+      // -------- EXAMPLE 2 --------
+      const students = ['Spongebob', 'Patrick', 'Squidward', 'Sandy'];
+
+      function upperCase(element) {
+        return element.toUpperCase();
+      }
+
+      function lowerCase(element) {
+        return element.toLowerCase();
+      }
+
+      // -------- EXAMPLE 3 --------
+      const dates = ['2024-1-10', '2025-2-20', '2026-3-30'];
+
+      function formatDates(element) {
+        const parts = element.split('-');
+        return `${parts[1]}/${parts[2]}/${parts[0]}`;
+      }
+
+      document.getElementById('runBtn').addEventListener('click', function () {
+        clearOutput();
+
+        // Numbers
+        const squared = numbers.map(square);
+        const cubed = numbers.map(cube);
+
+        display('Numbers Squared', squared.join(', '));
+        display('Numbers Cubed', cubed.join(', '));
+
+        // Students
+        const upper = students.map(upperCase);
+        const lower = students.map(lowerCase);
+
+        display('Students Uppercase', upper.join(', '));
+        display('Students Lowercase', lower.join(', '));
+
+        // Dates
+        const formatted = dates.map(formatDates);
+
+        display('Formatted Dates', formatted.join(' | '));
+      });
+    </script>
+  </body>
+</html>
