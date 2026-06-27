@@ -1,0 +1,81 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main Container */
+.container {
+  background: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #e0e0e0;
+  margin-bottom: 25px;
+}
+
+/* Cards for each example */
+.card {
+  background: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 16px;
+  color: #34495e;
+  margin-bottom: 12px;
+}
+
+/* Highlighted Output Box */
+.output-box {
+  background: #e8f4fd;
+  border-left: 4px solid #3498db;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+.output-box strong {
+  color: #2980b9;
+}

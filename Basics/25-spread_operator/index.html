@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning the Spread Operator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>The Spread Operator <span class="code-icon">...</span></h1>
+
+      <div class="card">
+        <h3>Example 1: Math Operations</h3>
+        <p class="desc">Unpacking an array to find max/min values.</p>
+        <div class="result" id="ex1"></div>
+      </div>
+
+      <div class="card">
+        <h3>Example 2: String to Array</h3>
+        <p class="desc">Unpacking a string into individual characters.</p>
+        <div class="result" id="ex2"></div>
+      </div>
+
+      <div class="card">
+        <h3>Example 3: Combining Arrays</h3>
+        <p class="desc">Merging fruits, veggies, and extra items.</p>
+        <div class="result" id="ex3"></div>
+      </div>
+    </div>
+
+    <script>
+      // ------------ EXAMPLE 1 ------------
+      let numbers = [1, 2, 3, 4, 5];
+      let maximum = Math.max(...numbers);
+      let minimum = Math.min(...numbers);
+      document.getElementById('ex1').innerText =
+        `Max: ${maximum} | Min: ${minimum}`;
+
+      // ------------ EXAMPLE 2 ------------
+      let username = 'Bro Code';
+      let letters = [...username];
+      document.getElementById('ex2').innerText = JSON.stringify(letters);
+
+      // ------------ EXAMPLE 3 ------------
+      let fruits = ['apple', 'orange', 'banana'];
+      let vegetables = ['carrots', 'celery', 'potatoes'];
+      let foods = [...fruits, ...vegetables, 'eggs', 'milk'];
+      document.getElementById('ex3').innerText = foods.join(', ');
+    </script>
+  </body>
+</html>

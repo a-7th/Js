@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Array Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>🍓 Fruit Inventory</h2>
+
+      <input type="text" id="fruitInput" placeholder="Type a fruit name..." />
+
+      <div class="btn-grid">
+        <button onclick="addEnd()" class="btn-push">Push (Add End)</button>
+        <button onclick="addStart()" class="btn-unshift">
+          Unshift (Add Start)
+        </button>
+        <button onclick="removeEnd()" class="btn-pop">Pop (Remove End)</button>
+        <button onclick="removeStart()" class="btn-shift">
+          Shift (Remove Start)
+        </button>
+      </div>
+
+      <hr />
+
+      <h3>Current Array:</h3>
+      <ul id="fruitList"></ul>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

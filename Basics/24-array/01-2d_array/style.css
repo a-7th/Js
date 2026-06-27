@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.matrix-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Creates a strict 3x3 layout */
+.grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 10px;
+}
+
+/* Styling for each individual square cell */
+.cell {
+  background-color: #34495e;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+/* Highlight X and O differently if you decide to use them later */
+.cell:hover {
+  background-color: #2c3e50;
+}

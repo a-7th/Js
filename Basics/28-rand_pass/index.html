@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="crypto-box">
+      <h2>Password Generator</h2>
+
+      <div class="result-container">
+        <input
+          type="text"
+          id="passwordDisplay"
+          readonly
+          placeholder="Generating..."
+        />
+      </div>
+      <p class="note">
+        This password was generated using your exact script logic.
+      </p>
+    </div>
+
+    <script src="index.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 'password' comes directly from your index.js file global scope
+        if (typeof password !== 'undefined') {
+          document.getElementById('passwordDisplay').value = password;
+        } else {
+          document.getElementById('passwordDisplay').value =
+            'Error: password variable not found';
+        }
+      });
+    </script>
+  </body>
+</html>

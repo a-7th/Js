@@ -1,0 +1,69 @@
+/* General page reset and layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* The container box for the app */
+.converter-box {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+/* Header style */
+h2 {
+  color: #333;
+  margin-top: 0;
+}
+
+/* Input field styling */
+input[type='number'] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Layout for the radio buttons */
+.radio-group {
+  text-align: left;
+  margin: 15px 10px;
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* Submit button styling */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Result text styling */
+#result {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}

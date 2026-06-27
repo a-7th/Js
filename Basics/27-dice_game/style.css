@@ -1,0 +1,132 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Core Container */
+.dice-container {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Input Styles */
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+input[type='number'] {
+  width: 70px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  text-align: center;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+input[type='number']:focus {
+  border-color: #3498db;
+}
+
+/* Roll Button */
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 25px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Results Text Box */
+.dice-result {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+/* Dice Images Box Layout */
+.dice-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Individual Dice Image Styling */
+.dice-images img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+  animation: rollAnimation 0.3s ease-out;
+}
+
+/* Subtle entrance animation when dice appear */
+@keyframes rollAnimation {
+  0% {
+    transform: scale(0.5) rotate(-45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}

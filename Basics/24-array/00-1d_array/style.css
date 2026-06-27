@@ -1,0 +1,103 @@
+/* Core page styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* App container card */
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  width: 350px;
+  text-align: center;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+/* Text Input */
+input[type='text'] {
+  width: 90%;
+  padding: 12px;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type='text']:focus {
+  border-color: #3498db;
+}
+
+/* Button Layout Grid */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    opacity 0.2s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Styling buttons by their behavior */
+.btn-push,
+.btn-unshift {
+  background-color: #2ecc71;
+} /* Green for add */
+.btn-pop,
+.btn-shift {
+  background-color: #e74c3c;
+} /* Red for remove */
+
+button:hover {
+  opacity: 0.9;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #dcdde1;
+  margin: 20px 0;
+}
+
+/* List styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+li {
+  background: #f8f9fa;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  font-size: 16px;
+  text-transform: capitalize;
+}

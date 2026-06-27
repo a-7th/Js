@@ -1,0 +1,71 @@
+/* Simple Reset & Font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Dashboard Container */
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.code-icon {
+  color: #e74c3c;
+  font-family: monospace;
+}
+
+/* Card Styles for Examples */
+.card {
+  background: #fafafa;
+  border-left: 4px solid #3498db;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.card h3 {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+/* Result Box */
+.result {
+  background: #2c3e50;
+  color: #2ecc71;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  word-break: break-all;
+}
