@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this Keyword Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript <code>this</code> Demo</h1>
+
+      <button id="runBtn">Run Code</button>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function display(title, value) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        const p = document.createElement('p');
+        p.textContent = value;
+
+        block.appendChild(h3);
+        block.appendChild(p);
+        output.appendChild(block);
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+
+      document.getElementById('runBtn').addEventListener('click', () => {
+        clearOutput();
+
+        const person1 = {
+          name: 'Spongebob',
+          favFood: 'hamburgers',
+          sayHello: function () {
+            display('person1 sayHello', `Hi! I am ${this.name}`);
+          },
+          eat: function () {
+            display('person1 eat', `${this.name} is eating ${this.favFood}`);
+          },
+        };
+
+        const person2 = {
+          name: 'Patrick',
+          favFood: 'pizza',
+          sayHello: function () {
+            display('person2 sayHello', `Hi! I am ${this.name}`);
+          },
+          eat: function () {
+            display('person2 eat', `${this.name} is eating ${this.favFood}`);
+          },
+        };
+
+        person1.eat();
+        person1.sayHello();
+
+        person2.eat();
+        person2.sayHello();
+      });
+    </script>
+  </body>
+</html>
