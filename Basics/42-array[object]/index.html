@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array Methods</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fruits Data (map / filter / reduce)</h1>
+
+      <button onclick="runProgram()">Run Program</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      // ---------- DATA ----------
+      const fruits = [
+        { name: 'apple', color: 'red', calories: 95 },
+        { name: 'orange', color: 'orange', calories: 45 },
+        { name: 'banana', color: 'yellow', calories: 105 },
+        { name: 'coconut', color: 'white', calories: 159 },
+        { name: 'pineapple', color: 'yellow', calories: 37 },
+      ];
+
+      function runProgram() {
+        output.innerHTML = '';
+
+        // Access property
+        print('Calories of first fruit: ' + fruits[0].calories);
+        print('-------------------');
+
+        // Add / remove
+        fruits.push({ name: 'grapes', color: 'purple', calories: 62 });
+        fruits.pop();
+        fruits.splice(1, 2);
+
+        // ---------- forEach ----------
+        print('=== forEach ===');
+        fruits.forEach((fruit) => print(JSON.stringify(fruit)));
+
+        print('<br>Names:');
+        fruits.forEach((fruit) => print(fruit.name));
+
+        // ---------- map ----------
+        print('<br>=== map ===');
+
+        const fruitNames = fruits.map((fruit) => fruit.name);
+        const fruitColors = fruits.map((fruit) => fruit.color);
+        const fruitCalories = fruits.map((fruit) => fruit.calories);
+
+        print('Names: ' + fruitNames.join(', '));
+        print('Colors: ' + fruitColors.join(', '));
+        print('Calories: ' + fruitCalories.join(', '));
+
+        // ---------- filter ----------
+        print('<br>=== filter ===');
+
+        const yellowFruits = fruits.filter((fruit) => fruit.color === 'yellow');
+        const lowCalFruits = fruits.filter((fruit) => fruit.calories < 100);
+        const highCalFruits = fruits.filter((fruit) => fruit.calories >= 100);
+
+        print('Yellow: ' + JSON.stringify(yellowFruits));
+        print('Low Cal: ' + JSON.stringify(lowCalFruits));
+        print('High Cal: ' + JSON.stringify(highCalFruits));
+
+        // ---------- reduce ----------
+        print('<br>=== reduce ===');
+
+        const maxFruit = fruits.reduce((max, fruit) =>
+          fruit.calories > max.calories ? fruit : max
+        );
+
+        const minFruit = fruits.reduce((min, fruit) =>
+          fruit.calories < min.calories ? fruit : min
+        );
+
+        print('Max calories fruit: ' + JSON.stringify(maxFruit));
+        print('Min calories fruit: ' + JSON.stringify(minFruit));
+      }
+    </script>
+  </body>
+</html>
