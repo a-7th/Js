@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fisher-Yates Shuffle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Card Shuffle (Fisher-Yates)</h1>
+
+      <button onclick="runProgram()">Shuffle Cards</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      // ---------- DATA ----------
+      const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+      // ---------- SHUFFLE ALGORITHM ----------
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const random = Math.floor(Math.random() * (i + 1));
+
+          [array[i], array[random]] = [array[random], array[i]];
+        }
+      }
+
+      function runProgram() {
+        output.innerHTML = '';
+
+        print('Original Cards:');
+        print(['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'].join(', '));
+
+        shuffle(cards);
+
+        print('<br>Shuffled Cards:');
+        print(cards.join(', '));
+      }
+    </script>
+  </body>
+</html>
