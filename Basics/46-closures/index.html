@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Closures</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Closures</h1>
+
+      <button onclick="runProgram()">Run Program</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      // ---------- EXAMPLE 1 ----------
+      function outer() {
+        const message = 'Hello';
+
+        function inner() {
+          print(message);
+        }
+
+        inner();
+      }
+
+      // ---------- EXAMPLE 2 ----------
+      function createCounter() {
+        let count = 0;
+
+        function increment() {
+          count++;
+          print(`Count increased to ${count}`);
+        }
+
+        function getCount() {
+          return count;
+        }
+
+        return { increment, getCount };
+      }
+
+      // ---------- EXAMPLE 3 ----------
+      function createGame() {
+        let score = 0;
+
+        function increaseScore(points) {
+          score += points;
+          print(`+${points} pts`);
+        }
+
+        function decreaseScore(points) {
+          score -= points;
+          print(`-${points} pts`);
+        }
+
+        function getScore() {
+          return score;
+        }
+
+        return { increaseScore, decreaseScore, getScore };
+      }
+
+      function runProgram() {
+        output.innerHTML = '';
+
+        print('=== EXAMPLE 1 ===');
+        outer();
+
+        print('<br>=== EXAMPLE 2: COUNTER ===');
+        const counter = createCounter();
+
+        counter.increment();
+        counter.increment();
+        counter.increment();
+
+        print('Final Count: ' + counter.getCount());
+
+        print('<br>=== EXAMPLE 3: GAME ===');
+        const game = createGame();
+
+        game.increaseScore(5);
+        game.increaseScore(6);
+        game.decreaseScore(3);
+
+        print('Final Score: ' + game.getScore());
+      }
+    </script>
+  </body>
+</html>
