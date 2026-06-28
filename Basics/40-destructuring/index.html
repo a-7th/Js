@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Destructuring</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Destructuring</h1>
+
+      <button onclick="runProgram()">Run Examples</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      // ---------- EXAMPLE 1 ----------
+      function runProgram() {
+        output.innerHTML = '';
+
+        print('=== EXAMPLE 1: SWAP VARIABLES ===');
+
+        let a = 1;
+        let b = 2;
+
+        [a, b] = [b, a];
+
+        print('a = ' + a);
+        print('b = ' + b);
+
+        print('<br>');
+
+        // ---------- EXAMPLE 2 ----------
+        print('=== EXAMPLE 2: SWAP ARRAY ELEMENTS ===');
+
+        const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+        [colors[0], colors[4]] = [colors[4], colors[0]];
+
+        print(colors.join(', '));
+
+        print('<br>');
+
+        // ---------- EXAMPLE 3 ----------
+        print('=== EXAMPLE 3: ARRAY DESTRUCTURING ===');
+
+        const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+
+        print(firstColor);
+        print(secondColor);
+        print(thirdColor);
+        print(extraColors.join(', '));
+
+        print('<br>');
+
+        // ---------- EXAMPLE 4 ----------
+        print('=== EXAMPLE 4: OBJECT DESTRUCTURING ===');
+
+        const person1 = {
+          firstName: 'Spongebob',
+          lastName: 'Squarepants',
+          age: 30,
+          job: 'Fry cook',
+        };
+
+        const person2 = {
+          firstName: 'Patrick',
+          lastName: 'Star',
+          age: 34,
+        };
+
+        const { firstName, lastName, age, job = 'Unemployed' } = person2;
+
+        print(firstName);
+        print(lastName);
+        print(age);
+        print(job);
+
+        print('<br>');
+
+        // ---------- EXAMPLE 5 ----------
+        print('=== EXAMPLE 5: FUNCTION PARAMETER DESTRUCTURING ===');
+
+        function displayPerson({
+          firstName,
+          lastName,
+          age,
+          job = 'Unemployed',
+        }) {
+          print(`name: ${firstName} ${lastName}`);
+          print(`age: ${age}`);
+          print(`job: ${job}`);
+          print('---');
+        }
+
+        displayPerson(person1);
+        displayPerson(person2);
+      }
+    </script>
+  </body>
+</html>

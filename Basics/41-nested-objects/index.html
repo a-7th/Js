@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nested Objects</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Nested Objects</h1>
+
+      <button onclick="runProgram()">Run Program</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      // ---------- CLASSES ----------
+      class Person {
+        constructor(name, age, ...address) {
+          this.name = name;
+          this.age = age;
+          this.address = new Address(...address);
+        }
+      }
+
+      class Address {
+        constructor(street, city, country) {
+          this.street = street;
+          this.city = city;
+          this.country = country;
+        }
+      }
+
+      // ---------- DATA ----------
+      const person1 = new Person(
+        'Spongebob',
+        30,
+        '124 Conch St.',
+        'Bikini Bottom',
+        'Int. Waters'
+      );
+
+      const person2 = new Person(
+        'Patrick',
+        37,
+        '128 Conch St.',
+        'Bikini Bottom',
+        'Int. Waters'
+      );
+
+      const person3 = new Person(
+        'Squidward',
+        45,
+        '126 Conch St.',
+        'Bikini Bottom',
+        'Int. Waters'
+      );
+
+      // ---------- RUN ----------
+      function runProgram() {
+        output.innerHTML = '';
+
+        function showPerson(person) {
+          print('=== PERSON ===');
+          print('Name: ' + person.name);
+          print('Age: ' + person.age);
+
+          print('Address:');
+          print('Street: ' + person.address.street);
+          print('City: ' + person.address.city);
+          print('Country: ' + person.address.country);
+
+          print('-------------------');
+        }
+
+        showPerson(person1);
+        showPerson(person2);
+        showPerson(person3);
+      }
+    </script>
+  </body>
+</html>
