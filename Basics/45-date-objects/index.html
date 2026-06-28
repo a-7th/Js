@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date Object</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Date Object</h1>
+
+      <button onclick="runProgram()">Show Date</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      function runProgram() {
+        output.innerHTML = '';
+
+        const date = new Date();
+
+        print('Full Date Object:');
+        print(date);
+
+        print('<br>');
+
+        print('Year: ' + date.getFullYear());
+        print('Month: ' + (date.getMonth() + 1)); // months start at 0
+        print('Day: ' + date.getDate());
+
+        print('<br>');
+
+        print('Hours: ' + date.getHours());
+        print('Minutes: ' + date.getMinutes());
+        print('Seconds: ' + date.getSeconds());
+
+        print('<br>');
+
+        print('Formatted: ' + date.toLocaleString());
+      }
+    </script>
+  </body>
+</html>
