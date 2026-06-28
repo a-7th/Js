@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sort Method</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Array Sort (numbers + objects)</h1>
+
+      <button onclick="runProgram()">Run Program</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function print(text) {
+        output.innerHTML += text + '<br>';
+      }
+
+      // ---------- DATA ----------
+      const numbers = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+
+      const people = [
+        { name: 'Spongebob', age: 30, gpa: 3.0 },
+        { name: 'Patrick', age: 37, gpa: 1.5 },
+        { name: 'Squidward', age: 51, gpa: 2.5 },
+        { name: 'Sandy', age: 27, gpa: 4.0 },
+      ];
+
+      function runProgram() {
+        output.innerHTML = '';
+
+        // ---------- NUMBERS ----------
+        print('=== NUMBERS SORT ===');
+
+        let forwardNumbers = [...numbers].sort((a, b) => a - b);
+        let reverseNumbers = [...numbers].sort((a, b) => b - a);
+
+        print('Forward: ' + forwardNumbers.join(', '));
+        print('Reverse: ' + reverseNumbers.join(', '));
+
+        print('<br>');
+
+        // ---------- PEOPLE BY AGE ----------
+        print('=== SORT BY AGE ===');
+
+        let ageAsc = [...people].sort((a, b) => a.age - b.age);
+        let ageDesc = [...people].sort((a, b) => b.age - a.age);
+
+        print('Age ASC:');
+        ageAsc.forEach((p) => print(p.name + ' - ' + p.age));
+
+        print('Age DESC:');
+        ageDesc.forEach((p) => print(p.name + ' - ' + p.age));
+
+        print('<br>');
+
+        // ---------- GPA ----------
+        print('=== SORT BY GPA ===');
+
+        let gpaAsc = [...people].sort((a, b) => a.gpa - b.gpa);
+        let gpaDesc = [...people].sort((a, b) => b.gpa - a.gpa);
+
+        print('GPA ASC:');
+        gpaAsc.forEach((p) => print(p.name + ' - ' + p.gpa));
+
+        print('GPA DESC:');
+        gpaDesc.forEach((p) => print(p.name + ' - ' + p.gpa));
+
+        print('<br>');
+
+        // ---------- NAME ----------
+        print('=== SORT BY NAME ===');
+
+        let nameAsc = [...people].sort((a, b) => a.name.localeCompare(b.name));
+        let nameDesc = [...people].sort((a, b) => b.name.localeCompare(a.name));
+
+        print('NAME ASC:');
+        nameAsc.forEach((p) => print(p.name));
+
+        print('NAME DESC:');
+        nameDesc.forEach((p) => print(p.name));
+      }
+    </script>
+  </body>
+</html>
