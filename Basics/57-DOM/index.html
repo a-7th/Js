@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="welcome-msg">Click the button</h1>
+
+      <button onclick="loadScript()">Show Output</button>
+    </div>
+
+    <script>
+      function loadScript() {
+        const script = document.createElement('script');
+        script.src = 'index.js';
+        document.body.appendChild(script);
+      }
+    </script>
+  </body>
+</html>
