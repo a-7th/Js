@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async vs Sync Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Async vs Sync Demo</h1>
+
+      <button onclick="runDemo()">Run Code</button>
+
+      <div id="output"></div>
+    </div>
+
+    <script>
+      // ASYNCHRONOUS
+      function func1(callback) {
+        setTimeout(() => {
+          log('Task 1 (Async - after 3s)');
+          callback();
+        }, 3000);
+      }
+
+      // SYNCHRONOUS
+      function func2() {
+        log('Task 2');
+        log('Task 3');
+        log('Task 4');
+      }
+
+      function log(message) {
+        const output = document.getElementById('output');
+        const p = document.createElement('p');
+        p.textContent = message;
+        output.appendChild(p);
+      }
+
+      function runDemo() {
+        document.getElementById('output').innerHTML = ''; // clear previous output
+        log('Starting...');
+
+        func1(func2);
+      }
+    </script>
+  </body>
+</html>
