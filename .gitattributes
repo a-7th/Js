@@ -1,5 +1,5 @@
-# Treat all HTML files as documentation (they won't count toward language stats)
+# Exclude HTML from GitHub language statistics
 *.html linguist-documentation=true
 
-# OR: If you have a specific massive HTML file or vendor folder vendor/ skewing it:
-path/to/large/file.html linguist-vendored
+# Exclude CSS from GitHub language statistics
+*.css linguist-documentation=true
