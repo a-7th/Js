@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url('a7th4.png') center/cover no-repeat;
+}
+
+#clock {
+  padding: 20px 40px;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ff3b3b;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid #ff3b3b;
+  border-radius: 15px;
+  text-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
