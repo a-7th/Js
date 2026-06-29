@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locale String Formatter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1>Number Formatter</h1>
+      <p>
+        Click the button below to see how <code>.toLocaleString()</code> formats
+        <strong>123456.789</strong> across different regions.
+      </p>
+
+      <button id="formatBtn">Format Number</button>
+
+      <div id="output" class="output-box hidden"></div>
+    </div>
+
+    <script>
+      document.getElementById('formatBtn').addEventListener('click', () => {
+        const num = 123456.789;
+        const outputDiv = document.getElementById('output');
+
+        // Generate the formatted strings safely
+        const results = [
+          `<strong>US English:</strong> ${num.toLocaleString('en-US')}`,
+          `<strong>India Hindi:</strong> ${num.toLocaleString('hi-IN')}`,
+          `<strong>Germany German:</strong> ${num.toLocaleString('de-DE')}`,
+          `<strong>Default Locale:</strong> ${num.toLocaleString(undefined)}`,
+          `<strong>US Currency:</strong> ${num.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`,
+          `<strong>India Currency:</strong> ${num.toLocaleString('hi-IN', { style: 'currency', currency: 'INR' })}`,
+          `<strong>Germany Currency:</strong> ${num.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}`,
+        ];
+
+        // Display results
+        outputDiv.innerHTML = results.join('<br>');
+        outputDiv.classList.remove('hidden');
+      });
+    </script>
+  </body>
+</html>
