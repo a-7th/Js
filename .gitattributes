@@ -1,0 +1,5 @@
+# Treat all HTML files as documentation (they won't count toward language stats)
+*.html linguist-documentation=true
+
+# OR: If you have a specific massive HTML file or vendor folder vendor/ skewing it:
+path/to/large/file.html linguist-vendored

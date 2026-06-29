@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try Catch Example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Division Calculator</h1>
+
+      <button id="runBtn">Run Program</button>
+
+      <div id="output">Output will appear here...</div>
+    </div>
+
+    <script>
+      const button = document.getElementById('runBtn');
+      const output = document.getElementById('output');
+
+      button.addEventListener('click', () => {
+        output.innerHTML = '';
+
+        try {
+          const dividend = Number(window.prompt('Enter a dividend:'));
+          const divisor = Number(window.prompt('Enter a divisor:'));
+
+          if (divisor === 0) {
+            throw new Error("You can't divide by zero!");
+          }
+
+          if (isNaN(dividend) || isNaN(divisor)) {
+            throw new Error('Values must be numbers!');
+          }
+
+          const result = dividend / divisor;
+          output.innerHTML = `<span class="success">Result: ${result}</span>`;
+        } catch (error) {
+          output.innerHTML = `<span class="error">${error.message}</span>`;
+        } finally {
+          console.log('This always executes');
+        }
+      });
+    </script>
+  </body>
+</html>
