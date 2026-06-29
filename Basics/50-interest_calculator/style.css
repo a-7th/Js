@@ -1,0 +1,89 @@
+/* Basic reset to make things look clean */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff5f5; /* Light, soft pinkish-red background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* The main calculator box */
+.calculator-container {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #d32f2f; /* Strong red accent top border */
+  width: 320px;
+}
+
+h2 {
+  color: #d32f2f; /* Red heading */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Spacing out the inputs */
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffcdd2; /* Soft red/pink border */
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Changes border color when you click inside the input */
+input:focus {
+  border-color: #d32f2f;
+}
+
+/* Red Calculate Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Makes the button slightly darker when hovered */
+button:hover {
+  background-color: #b71c1c;
+}
+
+/* Result box styling */
+.result-box {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffebee; /* Soft red background for the result */
+  border-radius: 4px;
+  text-align: center;
+}
+
+#total-amount {
+  color: #d32f2f;
+  font-weight: bold;
+}
