@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Navigation Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>DOM Navigation</h1>
+
+    <button id="showBtn">Show Output</button>
+
+    <div class="lists">
+      <ul id="fruits">
+        <h3>Fruits</h3>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+      </ul>
+
+      <ul id="vegetables">
+        <h3>Vegetables</h3>
+        <li>Carrot</li>
+        <li>Onion</li>
+        <li>Potato</li>
+      </ul>
+
+      <ul id="desserts">
+        <h3>Desserts</h3>
+        <li>Cake</li>
+        <li id="ice-cream">Ice Cream</li>
+        <li>Pie</li>
+      </ul>
+    </div>
+
+    <script>
+      document.getElementById('showBtn').addEventListener('click', () => {
+        // ---------- .firstElementChild ----------
+
+        const ulElements = document.querySelectorAll('ul');
+
+        ulElements.forEach((ulElement) => {
+          const firstChild = ulElement.firstElementChild;
+          firstChild.style.backgroundColor = 'yellow';
+        });
+
+        // ---------- .lastElementChild ----------
+
+        ulElements.forEach((ulElement) => {
+          const lastChild = ulElement.lastElementChild;
+          lastChild.style.backgroundColor = 'lightgreen';
+        });
+
+        // ---------- .nextElementSibling ----------
+
+        const vegetables = document.getElementById('vegetables');
+        const nextSibling = vegetables.nextElementSibling;
+        nextSibling.style.backgroundColor = '#ffd6d6';
+
+        // ---------- .previousElementSibling ----------
+
+        const desserts = document.getElementById('desserts');
+        const prevSibling = desserts.previousElementSibling;
+        prevSibling.style.backgroundColor = '#d6eaff';
+
+        // ---------- .parentElement ----------
+
+        const iceCream = document.getElementById('ice-cream');
+        const parent = iceCream.parentElement;
+        parent.style.border = '3px solid red';
+
+        // ---------- .children ----------
+
+        const fruits = document.getElementById('fruits');
+        const children = fruits.children;
+
+        Array.from(children).forEach((child) => {
+          child.style.color = 'red';
+          child.style.fontWeight = 'bold';
+        });
+      });
+    </script>
+  </body>
+</html>
