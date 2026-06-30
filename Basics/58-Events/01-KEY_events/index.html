@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard Events Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="showBtn">Enable Demo</button>
+
+    <div id="playground">
+      <div id="myBox">😀</div>
+    </div>
+
+    <script>
+      const showBtn = document.getElementById('showBtn');
+
+      showBtn.addEventListener('click', () => {
+        const myBox = document.getElementById('myBox');
+        const moveAmount = 10;
+        let x = 0;
+        let y = 0;
+
+        document.addEventListener('keydown', (event) => {
+          myBox.textContent = '😲';
+          myBox.style.backgroundColor = 'tomato';
+        });
+
+        document.addEventListener('keyup', (event) => {
+          myBox.textContent = '😀';
+          myBox.style.backgroundColor = 'lightblue';
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key.startsWith('Arrow')) {
+            event.preventDefault();
+
+            switch (event.key) {
+              case 'ArrowUp':
+                y -= moveAmount;
+                break;
+              case 'ArrowDown':
+                y += moveAmount;
+                break;
+              case 'ArrowLeft':
+                x -= moveAmount;
+                break;
+              case 'ArrowRight':
+                x += moveAmount;
+                break;
+            }
+
+            myBox.style.top = `${y}px`;
+            myBox.style.left = `${x}px`;
+          }
+        });
+
+        showBtn.disabled = true;
+        showBtn.textContent = 'Use Arrow Keys';
+      });
+    </script>
+  </body>
+</html>
