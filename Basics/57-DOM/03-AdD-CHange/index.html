@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create & Insert Elements</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="showBtn">Show Output</button>
+
+    <div class="container">
+      <div class="box" id="box1">Box 1</div>
+      <div class="box" id="box2">Box 2</div>
+      <div class="box" id="box3">Box 3</div>
+      <div class="box" id="box4">Box 4</div>
+    </div>
+
+    <h2>Fruits</h2>
+
+    <ul id="fruits">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li id="banana">Banana</li>
+    </ul>
+
+    <script>
+      document.getElementById('showBtn').addEventListener('click', () => {
+        // ---------- EXAMPLE 1 h1 ELEMENT ----------
+
+        const newH1 = document.createElement('h1');
+
+        newH1.textContent = 'I like pizza!';
+        newH1.id = 'myH1';
+        newH1.style.color = 'tomato';
+        newH1.style.textAlign = 'center';
+
+        document.body.prepend(newH1);
+
+        // ---------- EXAMPLE 2 li ELEMENT ----------
+
+        const newListItem = document.createElement('li');
+
+        newListItem.textContent = 'Coconut';
+        newListItem.id = 'coconut';
+        newListItem.style.fontWeight = 'bold';
+        newListItem.style.backgroundColor = 'lightgreen';
+
+        document.getElementById('fruits').append(newListItem);
+      });
+    </script>
+  </body>
+</html>
