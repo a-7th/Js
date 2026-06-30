@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="showBtn">Enable Demo</button>
+
+    <div id="myBox">Click Me 😀</div>
+
+    <script>
+      const showBtn = document.getElementById('showBtn');
+
+      showBtn.addEventListener('click', () => {
+        const myBox = document.getElementById('myBox');
+
+        myBox.addEventListener('click', (event) => {
+          event.target.style.backgroundColor = 'tomato';
+          event.target.textContent = 'OUCH! 🤕';
+        });
+
+        myBox.addEventListener('mouseover', (event) => {
+          event.target.style.backgroundColor = 'yellow';
+          event.target.textContent = "Don't do it 😲";
+        });
+
+        myBox.addEventListener('mouseout', (event) => {
+          event.target.style.backgroundColor = 'lightgreen';
+          event.target.textContent = 'Click Me 😀';
+        });
+
+        showBtn.disabled = true;
+        showBtn.textContent = 'Demo Enabled';
+      });
+    </script>
+  </body>
+</html>
