@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element Selectors Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="my-heading">Element Selectors</h1>
+
+    <button id="showBtn">Show Output</button>
+
+    <h4>Fruits</h4>
+    <ul>
+      <li class="fruits">Apple</li>
+      <li class="fruits">Orange</li>
+      <li class="fruits">Banana</li>
+    </ul>
+
+    <h4>Vegetables</h4>
+    <ul>
+      <li>Carrot</li>
+      <li>Potato</li>
+      <li>Tomato</li>
+    </ul>
+
+    <script>
+      document.getElementById('showBtn').addEventListener('click', () => {
+        // ---------- getElementById() ----------
+
+        const myHeading = document.getElementById('my-heading');
+        myHeading.style.backgroundColor = 'yellow';
+        myHeading.style.textAlign = 'center';
+
+        // ---------- getElementsByClassName() ----------
+
+        const fruits = document.getElementsByClassName('fruits');
+
+        Array.from(fruits).forEach((fruit) => {
+          fruit.style.backgroundColor = 'yellow';
+        });
+
+        // ---------- getElementsByTagName() ----------
+
+        const h4Elements = document.getElementsByTagName('h4');
+        const liElements = document.getElementsByTagName('li');
+
+        Array.from(h4Elements).forEach((h4Element) => {
+          h4Element.style.backgroundColor = 'yellow';
+        });
+
+        Array.from(liElements).forEach((liElement) => {
+          liElement.style.backgroundColor = 'lightgreen';
+        });
+
+        // ---------- querySelector() ----------
+
+        const element = document.querySelector('li');
+        element.style.backgroundColor = 'yellow';
+
+        // ---------- querySelectorAll() ----------
+
+        const foods = document.querySelectorAll('li');
+
+        foods.forEach((food) => {
+          food.style.backgroundColor = 'yellow';
+        });
+      });
+    </script>
+  </body>
+</html>
