@@ -1,0 +1,128 @@
+/* Base Resets & Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1a0505; /* Deep, dark red-tinted black */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main Container */
+.game-container {
+  background-color: #2c0d0d; /* Crimson dark box */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  border: 2px solid #801414;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ff4d4d;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Action Buttons */
+.choices-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.choices-container button {
+  background-color: #cc2424;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.choices-container button:hover {
+  background-color: #ff3333;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(255, 51, 51, 0.4);
+}
+
+.choices-container button:active {
+  transform: translateY(-1px);
+}
+
+/* Game Status Outputs */
+.display-board {
+  background-color: #1a0505;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border-left: 4px solid #ff4d4d;
+}
+
+.display-board p {
+  font-size: 1.1rem;
+  margin: 8px 0;
+  color: #ffb3b3;
+}
+
+#resultDisplay {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* JS-driven Classes for Text Color */
+.greenText {
+  color: #4ed964 !important; /* Overrides default for wins */
+  text-shadow: 0 0 10px rgba(78, 217, 100, 0.3);
+}
+
+.redText {
+  color: #ff3b30 !important; /* Overrides default for losses */
+  text-shadow: 0 0 10px rgba(255, 59, 48, 0.3);
+}
+
+/* Scoreboard Styling */
+.score-board {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.score-box {
+  flex: 1;
+  background-color: #401010;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #661010;
+}
+
+.score-box span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #ff8080;
+  letter-spacing: 1px;
+}
+
+.score-num {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #fff;
+}
