@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2b0000;
+  color: white;
+}
+
+.container {
+  width: 420px;
+  text-align: center;
+}
+
+h1 {
+  color: #ff4d4d;
+  margin-bottom: 20px;
+}
+
+.weatherForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cityInput {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #ff1a1a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #cc0000;
+  transform: scale(1.05);
+}
+
+.card {
+  background: #4d0000;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cityDisplay {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6666;
+}
+
+.tempDisplay {
+  font-size: 20px;
+}
+
+.humidityDisplay,
+.descDisplay {
+  color: #ffcccc;
+}
+
+.weatherEmoji {
+  font-size: 40px;
+}
+
+.errorDisplay {
+  color: #ff3333;
+  font-weight: bold;
+}
